@@ -1,20 +1,17 @@
 var wms_layers = [];
 
-var lyr_ImatgesatllitdeCatalunya1250000_0 = new ol.layer.Tile({
-                            source: new ol.source.TileWMS(({
-                              url: "http://geoserveis.icgc.cat/icc_mapesbase/wms/service?",
+
+        var lyr_GoogleSatelliteHybrid_0 = new ol.layer.Tile({
+            'title': 'Google Satellite Hybrid',
+            'type': 'base',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
     attributions: ' ',
-                              params: {
-                                "LAYERS": "sat250m",
-                                "TILED": "true",
-                                "VERSION": "1.1.1"},
-                            })),
-                            title: "Imatge satèl·lit de Catalunya 1:250.000",
-                            opacity: 1.000000,
-                            
-                            
-                          });
-              wms_layers.push([lyr_ImatgesatllitdeCatalunya1250000_0, 0]);
+                url: 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
+            })
+        });
 var format_Limit_PPP_T3_1 = new ol.format.GeoJSON();
 var features_Limit_PPP_T3_1 = format_Limit_PPP_T3_1.readFeatures(json_Limit_PPP_T3_1, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -44,8 +41,8 @@ var lyr_pericat_qgispericat_2 = new ol.layer.Vector({
                 title: '<img src="styles/legend/pericat_qgispericat_2.png" /> pericat_qgis pericat'
             });
 
-lyr_ImatgesatllitdeCatalunya1250000_0.setVisible(true);lyr_Limit_PPP_T3_1.setVisible(true);lyr_pericat_qgispericat_2.setVisible(true);
-var layersList = [lyr_ImatgesatllitdeCatalunya1250000_0,lyr_Limit_PPP_T3_1,lyr_pericat_qgispericat_2];
+lyr_GoogleSatelliteHybrid_0.setVisible(true);lyr_Limit_PPP_T3_1.setVisible(true);lyr_pericat_qgispericat_2.setVisible(true);
+var layersList = [lyr_GoogleSatelliteHybrid_0,lyr_Limit_PPP_T3_1,lyr_pericat_qgispericat_2];
 lyr_Limit_PPP_T3_1.set('fieldAliases', {'FID_PPP_T3': 'FID_PPP_T3', 'ID_USUARI': 'ID_USUARI', 'IDENTIF': 'IDENTIF', 'NOM': 'NOM', 'DESCRIPCIO': 'DESCRIPCIO', 'Sup_ha': 'Sup_ha', 'Shape_Leng': 'Shape_Leng', });
 lyr_pericat_qgispericat_2.set('fieldAliases', {'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'ID_ACTU': 'ID_ACTU', 'NOM_FOC': 'NOM_FOC', 'HECTARES': 'HECTARES', 'PERIMETER': 'PERIMETER', 'ANY': 'ANY', 'EXTEN_SINO': 'EXTEN_SINO', 'EXTEN_TIPU': 'EXTEN_TIPU', 'INFORME': 'INFORME', 'ZHR': 'ZHR', 'DATAI': 'DATAI', });
 lyr_Limit_PPP_T3_1.set('fieldImages', {'FID_PPP_T3': 'Range', 'ID_USUARI': 'TextEdit', 'IDENTIF': 'TextEdit', 'NOM': 'TextEdit', 'DESCRIPCIO': 'TextEdit', 'Sup_ha': 'TextEdit', 'Shape_Leng': 'TextEdit', });
